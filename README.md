@@ -2,7 +2,7 @@
 
 ### CAD tools eco-system
 
-- Set up the qtqs_tools docker (for help follow this [link]() 
+- Set up the qtqs_tools docker. For help see this [link](https://github.com/claudiotalarico/qtqs_tools). 
 
 ### Modulo-10 Up-Counter with validated Load and async active low reset
 ```
