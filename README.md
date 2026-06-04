@@ -21,3 +21,12 @@ The physical `clk` is phase‑shifted by `phase_ns` w.r.t. the virtual clock.<br
 The verification environment incorporates an external configuration file (`config.yaml`), that allows to enable/disable specific regression tests and to change key simulation parameters without modifying the Python source code.
 
 The cocoTB required files are:
+- [test_cnt.py](./test_cnt.py)
+- [config.yaml](./config.yaml)
+- [Makefile](./Makefile)
+
+To generate the test run the commands:
+```
+cd /fpga-designs/01_counter	
+make
+```
