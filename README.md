@@ -3,7 +3,7 @@
 ### Modulo-10 Up-Counter with validated Load and async active low reset
 ```
 mkdir -p /fpga-designs/01_counter
-mkdir -p /fpga-design/01_counter/RTL
+mkdir -p /fpga-designs/01_counter/RTL
 mkdir -p /fpga-designs/01_counter/SYN
 ```
 
