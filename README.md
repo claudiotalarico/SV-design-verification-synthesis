@@ -11,7 +11,7 @@ mkdir -p /fpga-designs/01_counter/SYN
 The design follows a two-block coding style: an `always_comb` block for the combinational logic and an `always_ff` block for the sequential logic.
 
 - [`cnt.sv`](./01_counter/RTL/cnt.sv)
-- [`tb_top.sv`](.01_counter/RTL/tb_top.sv)
+- [`tb_top.sv`](./01_counter/RTL/tb_top.sv)
 
 ### Testing using cocotb
 The input patterns (in `test_cnt.py`) are driven on the rising of a virtual clock `v_clk` running at `period_ns`. <br>
