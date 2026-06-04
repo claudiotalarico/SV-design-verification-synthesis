@@ -5,7 +5,8 @@
 //
 
 module cnt #(
-    parameter WIDTH = 4
+    parameter WIDTH = 4,
+    parameter MAX_VAL = 9
 )(
     input  logic              clk,
     input  logic              rst_n,
@@ -19,14 +20,14 @@ module cnt #(
     // 1. Combinational Logic: Priority Load with Validation
     always_comb begin
         if (load) begin
-            // Check if load data is within valid BCD range (0-9)
-            if (data_in > 9)
+            // Check if load data is within valid range
+            if (data_in > MAX_VAL)
                 next_count = '0;     // Load 0 if data_in is out of bounds
             else
                 next_count = data_in;
         end else begin
             // Increment logic
-            if (count >= 9)
+            if (count >= MAX_VAL)
                 next_count = '0;
             else
                 next_count = count + 1;
