@@ -1,5 +1,9 @@
 ## RTL Design (SystemVerilog) | Verification (Questa & cocotb) | Synthesis (Quartus Lite)
 
+### CAD tools eco-system
+
+- Set up the qtqs_tools docker (for help follow this [link]() 
+
 ### Modulo-10 Up-Counter with validated Load and async active low reset
 ```
 mkdir -p /fpga-designs/01_counter
