@@ -20,23 +20,23 @@ module cnt #(
     always_comb begin
         if (load) begin
             // Check if load data is within valid BCD range (0-9)
-            if (data_in > 4'd9)
-                next_count = 4'd0;     // Load 0 if data_in is out of bounds
+            if (data_in > 9)
+                next_count = '0;     // Load 0 if data_in is out of bounds
             else
                 next_count = data_in;
         end else begin
             // Increment logic
-            if (count >= 4'd9)
-                next_count = 4'd0;
+            if (count >= 9)
+                next_count = '0;
             else
-                next_count = count + 1'b1;
+                next_count = count + 1;
         end
     end
 
     // 2. Sequential Logic
     always_ff @(posedge clk or negedge rst_n) begin
         if (!rst_n)
-            count <= 4'd0;
+            count <= '0;
         else
             count <= next_count;
     end
