@@ -4,7 +4,7 @@
 ```
 mkdir -p /fpga-designs/01_counter
 mkdir -p /fpga-design/01_counter/RTL
-mkdir -p /fpga-designs01_counter/SYN
+mkdir -p /fpga-designs/01_counter/SYN
 ```
 
 ### Design and Testbench wrapper to create a visible virtual clock
