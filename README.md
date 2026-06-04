@@ -1,1 +1,1 @@
-## Design with SV, Verification with Questa and CocoTB, Synthesis with Quartus Lite
+## RTL Design (SystemVerilog) | Verification (Questa & CocoTB) | Synthesis (Quartus Lite)
