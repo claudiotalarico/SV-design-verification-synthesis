@@ -1,0 +1,14 @@
+# ============================================================
+#  Regression Configuration for Counter Testbench
+# ============================================================
+
+regressions:
+  run: true             # Enable the up counting test
+  valid_load: true      # Enable valid load test
+  invalid_load: true    # Enable invalid load test
+
+settings:
+  run_cycles: 20      # Number of iterations for the up counting test
+  period_ns: 10       # Main clock period
+  phase_ns: 1         # Delay between virtual and physical clock
+  skew_ns: 3          # Sampling offset to avoid setup/hold violations
