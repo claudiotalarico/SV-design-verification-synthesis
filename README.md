@@ -1,1 +1,1 @@
-### RTL Design (SystemVerilog) | Verification (Questa & cocotb) | Synthesis (Quartus Lite)
+## RTL Design (SystemVerilog) | Verification (Questa & cocotb) | Synthesis (Quartus Lite)
