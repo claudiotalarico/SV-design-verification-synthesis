@@ -1,1 +1,1 @@
-## SV Design, Questa and CocoTB verification, Quartus Lite synthesis
+## Design with SV, Verification with Questa and CocoTB, Synthesis with Quartus Lite
