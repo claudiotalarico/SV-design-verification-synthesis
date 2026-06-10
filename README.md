@@ -43,10 +43,10 @@ Depending on which `vsim` line you leave uncommented, the simulation runs in one
     - Open the Wave window and drag the signals you want to monitor from the Objects pane.
     - Run the simulation from the console with `run -all` or use the toolbar.
 - **Automatic with `waves.do`**<br>
-  The GUI opens with predefined signals loaded and then close automatically
+  The GUI opens with predefined signals loaded and then closes automatically
     - VCD generation is handled inside the testbench.
 - **Automatic with `waves_vcd.do`**<br>
-   The GUI opens with predefined signals loaded and then close automatically
+   The GUI opens with predefined signals loaded and then closes automatically
     - VCD generation is driven explicitly by `waves_vcd.do` rather than the testbench
 - **Batch (headless) with `waves_batch.do`**
     - no GUI is opened; the simulation runs to completion non-interactively.
