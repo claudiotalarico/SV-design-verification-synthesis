@@ -42,7 +42,7 @@ Depending on which `vsim` line you leave uncommented, the simulation runs in one
     - VCD generation is handled inside the testbench.
 - **Automatic with `waves_vcd.do`**
     - VCD generation is driven explicitly by `waves_vcd.do` rather than the testbench
-- **Batch (headless) with `waves_bach.do`**
+- **Batch (headless) with `waves_batch.do`**
     - no GUI is opened; the simulation runs to completion non-interactively.
     - VCD generation is handled inside the testbench.
       
