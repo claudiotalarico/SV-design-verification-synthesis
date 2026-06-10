@@ -12,20 +12,60 @@ mkdir -p /fpga-designs/01_counter
 mkdir -p /fpga-designs/01_counter/RTL
 ```
 
-### Design and Testbench wrapper to create a visible virtual clock
+### Design
 The design follows a two-block coding style: an `always_comb` block for the combinational logic and an `always_ff` block for the sequential logic.
 
 - [`cnt.sv`](./01_counter/RTL/cnt.sv)
-- [`tb_top.sv`](./01_counter/RTL/tb_top.sv)
+
+### Testing using SV testbench (traditional approach)
+
+- [`cnt_tb.sv`](./01_counter/TB/cnt_tb.sv)
+- [`config.txt`](./01_counter/config.txt)
+
+The SV testbench parses an external configuration file (`config.txt`), that allows to enable/disable specific regression tests and to change key simulation parameters without modifying and recompiling the SV code.
+
+To compile the design and the testbench run:
+```
+bash Comp.scr
+```
+
+To run the simulation and generate waveforms in both VCD and WLF formats, run:
+```
+bash Sim.scr
+```
+Depending on which `vsim` line you leave uncommented, the simulation runs in one of four modes::
+- **Interactive GUI** 
+  The Questa GUI opens with the simulation paused at time 0.
+    - Open the Wave window and  drag signals from the Objects pane.
+    - Run the simulation from the console with `run -all` or use the toolbar.
+- **Automatic with `waves.do`**
+    - VCD generation is handled inside the testbench.
+- **Automatic with `waves_vcd.do`**
+    - VCD generation is driven explicitly by `waves_vcd.do` rather than the testbench
+- **Batch (headless)**
+    - no GUI is opened; the simulation runs to completion non-interactively.
+    - VCD generation is handled inside the testbench.
+      
+Compilation and simulation commands can also be combined in a single script (`CompAndSim.scr`).
+
+The scripts to compile and simulate are the following:
+- [Comp.scr](./01_counter/Comp.scr)
+- [Sim.scr](./01_counter/Sim.scr)
+- [CompAndSim.scr](./01_counter/CompAndSim.scr)
+
+
 
 ### Testing using cocotb
 The input patterns (in `test_cnt.py`) are driven on the rising of a virtual clock `v_clk` running at `period_ns`. <br>
 The virtual clock starts in the low state.<br>
 The physical `clk` is phase‑shifted by `phase_ns` w.r.t. the virtual clock.<br>
+To create a visible virtual clock we need to add a SV Testbench wrapper (`tb_top.sv`)
+
 
 The verification environment incorporates an external configuration file (`config.yaml`), that allows to enable/disable specific regression tests and to change key simulation parameters without modifying the Python source code.
 
 The cocoTB required files are:
+- [`tb_top.sv`](./01_counter/RTL/tb_top.sv)
 - [`test_cnt.py`](./01_counter/test_cnt.py)
 - [`config.yaml`](./01_counter/config.yaml)
 - [`Makefile`](./01_counter/Makefile)
