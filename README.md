@@ -22,31 +22,33 @@ The design follows a two-block coding style: an `always_comb` block for the comb
 - [`cnt_tb.sv`](./01_counter/TB/cnt_tb.sv)
 - [`config.txt`](./01_counter/config.txt)
 
-The SV testbench parses an external configuration file (`config.txt`), that allows to enable/disable specific regression tests and to change key simulation parameters without modifying and recompiling the SV code.
+The SV testbench parses an external configuration file (`config.txt`), allowing you to enable/disable specific regression tests and change key simulation parameters without modifying or recompiling the SV source.
 
 To compile the design and the testbench run:
 ```
 bash Comp.scr
 ```
 
-To run the simulation and generate waveforms in both VCD and WLF formats, run:
+To run the simulation and generate waveforms in both VCD and WLF formats use:
 ```
 bash Sim.scr
 ```
-Depending on which `vsim` line you leave uncommented, the simulation runs in one of four modes::
+Depending on which `vsim` line you leave uncommented, the simulation runs in one of four modes:
 - **Interactive GUI** <br>
   The Questa GUI opens with the simulation paused at time 0.
     - Open the Wave window and drag the signals you want to monitor from the Objects pane.
     - Run the simulation from the console with `run -all` or use the toolbar.
-- **Automatic with `waves.do`**
+- **Automatic with `waves.do`**<br>
+  The GUI opens with predefined signals loaded and then close automatically
     - VCD generation is handled inside the testbench.
-- **Automatic with `waves_vcd.do`**
+- **Automatic with `waves_vcd.do`**<br>
+   The GUI opens with predefined signals loaded and then close automatically
     - VCD generation is driven explicitly by `waves_vcd.do` rather than the testbench
 - **Batch (headless) with `waves_batch.do`**
     - no GUI is opened; the simulation runs to completion non-interactively.
     - VCD generation is handled inside the testbench.
       
-Compilation and simulation commands can also be combined into a single script (`CompAndSim.scr`).
+Compilation and simulation can also be combined into a single step (`CompAndSim.scr`).
 
 The scripts and the Questa `.do` files are:
 - [`Comp.scr`](./01_counter/Comp.scr)
