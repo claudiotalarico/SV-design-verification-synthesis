@@ -20,7 +20,8 @@ The design follows a two-block coding style: an `always_comb` block for the comb
 ### Testing using SV testbench (traditional approach)
 
 The input patterns in `cnt_tb.sv` are driven on the rising of a virtual clock `tb_clk` running at period `T`.<br>
-The physical `clk` is phase‑shifted by `TB_SKEW` w.r.t. the virtual clock.
+The physical `clk` is phase‑shifted by `TB_SKEW` w.r.t. the virtual clock.<br>
+The testbench is self-checking. Outputs are checked `SKEW` ns before the end of the (physical) clock cycle.
 
 - [`cnt_tb.sv`](./01_counter/TB/cnt_tb.sv)
 - [`config.txt`](./01_counter/config.txt)
