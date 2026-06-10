@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# simulate
+# NOTE: Enabling design object visibility with the +acc option
+vsim -voptargs="+acc" work.cnt_tb
+# vsim -voptargs="+acc" work.cnt_tb -do waves.do
+# vsim -voptargs="+acc" work.cnt_tb -do waves_vcd.do
+# vsim -batch -voptargs="+acc" work.cnt_tb -do waves_batch.do
+
+# In case you want to use Questa as simulation Viewer
+# vsim -gui vsim.wlf -do signals.do
+
