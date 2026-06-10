@@ -4,7 +4,7 @@
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 cd "$SCRIPT_DIR"
 
-# Define the absolute path for the work directory (works also on container's local FS)
+# Define the absolute path for the work directory (it is OK also on container's local FS)
 WORK_DIR="/tmp/questa_work"
 
 # Create the parent directory structure 
