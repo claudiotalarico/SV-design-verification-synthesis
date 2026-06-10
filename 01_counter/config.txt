@@ -1,0 +1,17 @@
+# Lines starting with # are skipped
+
+# counter simulation parameters
+
+# key      value
+# ---       -----
+WIDTH       4
+T           20
+TB_SKEW     5
+TSKEW       3
+
+# To skip a test comment it out
+
+TEST        test_up_count
+TEST        test_valid_load
+TEST        test_invalid_load
+TEST        fake-test

@@ -1,0 +1,40 @@
+#!/bin/bash
+
+# Highly robust way to find the script's directory
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+cd "$SCRIPT_DIR"
+
+# Define the absolute path for the work directory on the container's local FS
+WORK_DIR="/tmp/questa_work"
+
+# Create the parent directory structure 
+mkdir -p "$WORK_DIR"
+
+# Handle the ModelSim/Questa library initialization safely
+if [ ! -d "$WORK_DIR/work" ]
+then
+    echo "--> Creating Directory $WORK_DIR/work"
+    vlib "$WORK_DIR/work"
+else
+    echo "--> Refreshing work library $WORK_DIR/work"
+    vdel -all -lib "$WORK_DIR/work"
+    vlib "$WORK_DIR/work"
+fi
+
+# Tell ModelSim/Questa natively that the logical name 'work' maps to the physical path
+# This creates a local 'modelsim.ini' in your current directory pointing to /tmp
+vmap work "$WORK_DIR/work"
+
+# compile (using the clean logical mapping)
+vlog -sv -work work ./RTL/cnt.sv ./TB/cnt_tb.sv
+
+# simulate
+# NOTE: Enabling design object visibility with the +acc option
+# vsim -voptargs="+acc" work.cnt_tb
+# vsim -voptargs="+acc" work.cnt_tb -do waves.do
+# vsim -voptargs="+acc" work.cnt_tb -do waves_vcd.do
+vsim -batch -voptargs="+acc" work.cnt_tb -do waves_batch.do
+
+# In case you want to use Questa as simulation Viewer
+# vsim -gui vsim.wlf -do signals.do
+
