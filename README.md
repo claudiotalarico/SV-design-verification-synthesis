@@ -46,7 +46,7 @@ Depending on which `vsim` line you leave uncommented, the simulation runs in one
     - no GUI is opened; the simulation runs to completion non-interactively.
     - VCD generation is handled inside the testbench.
       
-Compilation and simulation commands can also be combined in a single script (`CompAndSim.scr`).
+Compilation and simulation commands can also be combined into a single script (`CompAndSim.scr`).
 
 The scripts and the Questa `.do` files are:
 - [`Comp.scr`](./01_counter/Comp.scr)
