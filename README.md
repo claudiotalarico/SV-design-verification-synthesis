@@ -10,6 +10,7 @@
 ```
 mkdir -p /fpga-designs/01_counter
 mkdir -p /fpga-designs/01_counter/RTL
+mkdir -p /fpga-designs/01_counter/TB
 ```
 
 ### Design
