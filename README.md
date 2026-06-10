@@ -34,25 +34,27 @@ To run the simulation and generate waveforms in both VCD and WLF formats, run:
 bash Sim.scr
 ```
 Depending on which `vsim` line you leave uncommented, the simulation runs in one of four modes::
-- **Interactive GUI** 
+- **Interactive GUI** <br>
   The Questa GUI opens with the simulation paused at time 0.
-    - Open the Wave window and  drag signals from the Objects pane.
+    - Open the Wave window and drag the signals you want to monitor from the Objects pane.
     - Run the simulation from the console with `run -all` or use the toolbar.
 - **Automatic with `waves.do`**
     - VCD generation is handled inside the testbench.
 - **Automatic with `waves_vcd.do`**
     - VCD generation is driven explicitly by `waves_vcd.do` rather than the testbench
-- **Batch (headless)**
+- **Batch (headless) with `waves_bach.do`**
     - no GUI is opened; the simulation runs to completion non-interactively.
     - VCD generation is handled inside the testbench.
       
 Compilation and simulation commands can also be combined in a single script (`CompAndSim.scr`).
 
-The scripts to compile and simulate are the following:
-- [Comp.scr](./01_counter/Comp.scr)
-- [Sim.scr](./01_counter/Sim.scr)
-- [CompAndSim.scr](./01_counter/CompAndSim.scr)
-
+The scripts and the Questa `.do` files are:
+- [`Comp.scr`](./01_counter/Comp.scr)
+- [`Sim.scr`](./01_counter/Sim.scr)
+- [`CompAndSim.scr`](./01_counter/CompAndSim.scr)
+- [`waves.do`](./01_counter/waves.do)
+- [`waves_vcd.do`](./01_counter/waves_vcd.do)
+- [`waves_batch.do`](./01_counter/waves_batch.do)
 
 
 ### Testing using cocotb
