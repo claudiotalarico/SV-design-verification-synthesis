@@ -54,7 +54,7 @@ Depending on which `vsim` line you leave uncommented, the simulation runs in one
     - no GUI is opened; the simulation runs to completion non-interactively.
     - VCD generation is handled inside the testbench.
       
-Compilation and simulation can also be combined into a single step (`CompAndSim.scr`).
+Compilation and simulation can also be combined into a single script (`CompAndSim.scr`).
 
 The scripts and the Questa `.do` files are:
 - [`Comp.scr`](./01_counter/Comp.scr)
@@ -63,6 +63,24 @@ The scripts and the Questa `.do` files are:
 - [`waves.do`](./01_counter/waves.do)
 - [`waves_vcd.do`](./01_counter/waves_vcd.do)
 - [`waves_batch.do`](./01_counter/waves_batch.do)
+
+
+```
+gtkwave waveforms.vcd
+```
+<p align="center">
+       <img src="./01_counter/IMG/waveforms-vcd.png" width="1000" />
+</p>
+
+To preserve your current waveform layout, including selected signals, zoom levels, and color configurations, save a GTKWave configuration file (`.gtkw`).
+
+<pre>File > Write Save File As > waveforms.gtkw </pre>
+
+The next time you open your `.vcd` file, you can load your configuration file (`gtkw`) to instantly restore your exact waveform layout without having to drag all the signals in again:
+  
+```
+gtkwave waveforms.vcd waveforms.gtkw
+```
 
 
 ### Verification using cocotb
