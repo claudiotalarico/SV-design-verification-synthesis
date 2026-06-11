@@ -66,7 +66,7 @@ The scripts and the Questa `.do` files are:
 
 ## Analyzing the simulation waveforms
 
-To analyze the simulation waveforms, open your generated waveform trace file (.vcd or .fst format) in GTKWave using the following command:
+To analyze the simulation waveforms, open your generated waveform trace file (`.vcd` or `.fst` format) in GTKWave using the following command:
 ```
 gtkwave waveforms.vcd
 ```
