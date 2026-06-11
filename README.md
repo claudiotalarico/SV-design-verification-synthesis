@@ -95,7 +95,7 @@ vsim -gui vsim.wlf -do signals.do
 The [`signals.do`](./01_counter/signals.do) file is a macro script used to automatically load, format, and arrange your desired signals in the waveform window.
 
 <p align="center">
-       <img src="./01_counter/IMG/waveforms-wlf.png" width="1200" />
+       <img src="./01_counter/IMG/waveforms-wlf.png" width="1000" />
 </p>
 
 ### Verification using cocotb
