@@ -14,12 +14,12 @@ mkdir -p /fpga-designs/01_counter/TB
 cd /fpga-designs/01_counter
 ```
 
-### Design
+### SystemVerilog RTL Design
 The design follows a two-block coding style: an `always_comb` block for the combinational logic and an `always_ff` block for the sequential logic.
 
 - [`cnt.sv`](./01_counter/RTL/cnt.sv)
 
-### Testing using SV testbench (traditional approach)
+### Verification Using a Traditional SystemVerilog (SV) Testbench Approach
 
 The input patterns in `cnt_tb.sv` are driven on the rising of a virtual clock `tb_clk` running at period `T`.<br>
 The physical `clk` is phase‑shifted by `TB_SKEW` w.r.t. the virtual clock.<br>
@@ -65,7 +65,7 @@ The scripts and the Questa `.do` files are:
 - [`waves_batch.do`](./01_counter/waves_batch.do)
 
 
-### Testing using cocotb
+### Verification using cocotb
 The input patterns (in `test_cnt.py`) are driven on the rising of a virtual clock `v_clk` running at `period_ns`. <br>
 The virtual clock starts in the low state.<br>
 The physical `clk` is phase‑shifted by `phase_ns` w.r.t. the virtual clock.<br>
