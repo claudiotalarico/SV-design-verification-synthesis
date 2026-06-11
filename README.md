@@ -77,7 +77,7 @@ gtkwave waveforms.vcd
 
 By default, launching GTKWave with only a `.vcd` file opens an empty workspace, requiring you to manually navigate the Signal Search Tree (SST) to locate and add your desired signals.
 
-To preserve your current waveform layout, including selected signals, zoom levels, and color configurations, you can save a GTKWave configuration file (.gtkw). To do this, execute the following sequence in the main menu:
+To preserve your current waveform layout, including selected signals, zoom levels, and color configurations, you can save a GTKWave configuration file (`.gtkw`). To do this, execute the following sequence in the main menu:
 
 <pre>File > Write Save File As > waveforms.gtkw </pre>
 
@@ -87,7 +87,7 @@ The next time you launch GTKWave, provide the configuration file `.gtkw` alongsi
 gtkwave waveforms.vcd waveforms.gtkw
 ```
 
-An alternative to GTKWave is to use Questa with its default generated Wave Log Format (.wlf) trace file:
+An alternative to GTKWave is to use Questa with its default generated Wave Log Format (`.wlf`) trace file:
 ```
 vsim -gui vsim.wlf -do signals.do
 ```
