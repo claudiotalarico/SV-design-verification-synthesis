@@ -73,7 +73,7 @@ To create a visible virtual clock we need to add a SV Testbench wrapper (`tb_top
 
 
 The verification environment incorporates an external configuration file (`config.yaml`), that allows to enable/disable specific regression tests and to change key simulation parameters without modifying the Python source code.
-
+<!--
 The cocoTB required files are:
 - [`tb_top.sv`](./01_counter/RTL/tb_top.sv)
 - [`test_cnt.py`](./01_counter/test_cnt.py)
@@ -85,3 +85,4 @@ To generate the test run the commands:
 cd /fpga-designs/01_counter	
 make
 ```
+-->
