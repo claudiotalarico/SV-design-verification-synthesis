@@ -64,24 +64,39 @@ The scripts and the Questa `.do` files are:
 - [`waves_vcd.do`](./01_counter/waves_vcd.do)
 - [`waves_batch.do`](./01_counter/waves_batch.do)
 
+## Analyzing the simulation waveforms
 
+To analyze the simulation waveforms, open your generated waveform trace file (.vcd or .fst format) in GTKWave using the following command:
 ```
 gtkwave waveforms.vcd
 ```
+
 <p align="center">
        <img src="./01_counter/IMG/waveforms-vcd.png" width="1000" />
 </p>
 
-To preserve your current waveform layout, including selected signals, zoom levels, and color configurations, save a GTKWave configuration file (`.gtkw`).
+By default, launching GTKWave with only a `.vcd` file opens an empty workspace, requiring you to manually navigate the Signal Search Tree (SST) to locate and add your desired signals.
+
+To preserve your current waveform layout, including selected signals, zoom levels, and color configurations, you can save a GTKWave configuration file (.gtkw). To do this, execute the following sequence in the main menu:
 
 <pre>File > Write Save File As > waveforms.gtkw </pre>
 
-The next time you open your `.vcd` file, you can load your configuration file (`gtkw`) to instantly restore your exact waveform layout without having to drag all the signals in again:
+The next time you launch GTKWave, provide the configuration file `.gtkw` alongside the `.vcd` file to instantly restore your exact layout and avoid having to add the signals again:
   
 ```
 gtkwave waveforms.vcd waveforms.gtkw
 ```
 
+An alternative to GTKWave is to use Questa with its default generated Wave Log Format (.wlf) trace file:
+```
+vsim -gui vsim.wlf -do signals.do
+```
+
+The [`signals.do`](./01_counter/signals.do) file is a macro script used to automatically load, format, and arrange your desired signals in the waveform window.
+
+<p align="center">
+       <img src="./01_counter/IMG/waveforms-vcd.png" width="1000" />
+</p>
 
 ### Verification using cocotb
 The input patterns (in `test_cnt.py`) are driven on the rising of a virtual clock `v_clk` running at `period_ns`. <br>
