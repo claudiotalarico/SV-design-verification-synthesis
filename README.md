@@ -98,7 +98,7 @@ The [`signals.do`](./01_counter/signals.do) file is a macro script used to autom
        <img src="./01_counter/IMG/waveforms-wlf.png" width="1000" />
 </p>
 
-### Verification Using cocotb and Icarus Verilog (Makefile-based workflow)
+### Verification Using cocotb and Icarus Verilog (makefile-based workflow)
 The input patterns (in `test_cnt.py`) are driven on the rising of a virtual clock `v_clk` running at `period_ns`. <br>
 The virtual clock starts in the low state.<br>
 The physical `clk` is phase‑shifted by `phase_ns` w.r.t. the virtual clock.<br>
