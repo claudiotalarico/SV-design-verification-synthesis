@@ -59,7 +59,9 @@ include $(shell cocotb-config --makefiles)/Makefile.sim
 waves:
 ifeq ($(SIM),questa-compat)
 	@echo "Opening Questa waveform..."
-	vsim -view $(SIM_BUILD)/vsim.wlf
+	vsim -view $(SIM_BUILD)/vsim.wlf 
+	# vsim -view $(SIM_BUILD)/vsim.wlf -do "add wave /tb_top/*; wave zoomfull;"
+	# vsim -view $(SIM_BUILD)/vsim.wlf -do "add wave -r /*; wave zoomfull;"
 else
 	@echo "Opening GTKWave..."
 	gtkwave $(SIM_BUILD)/dump.vcd
@@ -67,7 +69,7 @@ endif
  
 signals:
 ifeq ($(SIM),questa-compat)
-	@echo "Opening Questa waveform..."
+	@echo "Opening Questa waveform with signal file..."
 	vsim -view $(SIM_BUILD)/vsim.wlf -do ./cocotb_signals.do
 else
 	@echo "Opening GTKWave with signal file..."
