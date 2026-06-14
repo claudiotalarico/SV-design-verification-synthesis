@@ -23,7 +23,6 @@ module tb_top(
     // Enable waveform dumping 
     initial begin
       v_clk = 0; // don't forget to initialize
-      // $dumpfile("WAVES/dump.fst");
       $dumpfile("WAVES/dump.vcd");
       $dumpvars(0, tb_top); 
     end
