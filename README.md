@@ -399,7 +399,7 @@ To diplay the simulation waveforms using Questa (`.wlf`) run:
 make waves SIM=questa
 ```
 
-Launching Questa this way opens an empty workspace, requiring you to manually add your desired signals.
+Launching Questa this way leaves the waveform viewer blank. You will need to manually add the desird signals.
 
 To do this, run the following command in the VSIM console:
 
