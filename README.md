@@ -98,7 +98,7 @@ The [`signals.do`](./01_counter/signals.do) file is a macro script used to autom
        <img src="./01_counter/IMG/waveforms-wlf.png" width="1000" />
 </p>
 
-### Verification using cocotb
+### Verification using cocotb and iverilog as simulator (Makefile work flow)
 The input patterns (in `test_cnt.py`) are driven on the rising of a virtual clock `v_clk` running at `period_ns`. <br>
 The virtual clock starts in the low state.<br>
 The physical `clk` is phase‑shifted by `phase_ns` w.r.t. the virtual clock.<br>
@@ -179,8 +179,20 @@ FST warning: ignoring signals in previously scanned scope tb_top.dut.
 
    525.00ns INFO     cocotb.tb_top                      Ending Test:: Time 525.0 ns
 
-
 make[1]: Leaving directory '/home/talarico/google-drive/fpga-designs/01_counter'
   
 </pre>
 
+To diplay the simulation waveforms run:
+
+```
+make waves
+```
+
+or
+
+```
+make signals
+```
+
+### Verification using cocotb and Questa as simulator 
