@@ -196,7 +196,7 @@ make[1]: Leaving directory '/home/talarico/google-drive/fpga-designs/01_counter'
 
 </pre>
 
-This will generate the waveform trace file in `.vcd` format.
+This generates a `.vcd` waveform trace file.
 
 To diplay the simulation waveforms run:
 
@@ -361,9 +361,9 @@ Reading pref.tcl
 make[1]: Leaving directory '/home/talarico/google-drive/fpga-designs/01_counter'
 </pre>
 
-This will generate the waveform trace file in both `.vcd` and `.wlf` formats.
+This generates waveform trace files in both `.vcd` and `.wlf` formats.
 
-To diplay the simulation waveforms using Questa (`.wlf` format) run:
+To diplay the simulation waveforms using Questa (`.wlf`) run:
 
 ```
 make waves SIM=questa
@@ -375,7 +375,7 @@ or
 make signals SIM=questa
 ```
 
-If you prefer to use the GTKWave viewer use:
+To open the waveforms with GTKWave (`.vcd`) instead of Questa, use:
 
 ```
 gtkwave ./WAVES/dump.vcd
