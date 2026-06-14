@@ -405,9 +405,8 @@ or
 make signals SIM=questa
 ```
 
-Launching Questa using `make waves SIM=questa` leaves the waveform viewer blank. You need add the desired signals manually.
-
-To do this, you can run the following command in the VSIM console:
+Launching Questa via `make waves SIM=questa` opens a blank waveform viewer. You must add the desired signals manually.<br>
+To do this, run the following command in the VSIM console:
 
 ```
 add wave /tb_top/*; wave zoomfull;
