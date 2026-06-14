@@ -63,6 +63,7 @@ The scripts and the Questa `.do` files are:
 - [`waves.do`](./01_counter/waves.do)
 - [`waves_vcd.do`](./01_counter/waves_vcd.do)
 - [`waves_batch.do`](./01_counter/waves_batch.do)
+- [`signals.do`](./01_counter/signals.do)
 
 ## Analyzing the simulation waveforms
 
