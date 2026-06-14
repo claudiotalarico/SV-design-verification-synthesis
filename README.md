@@ -21,9 +21,9 @@ The design follows a two-block coding style: an `always_comb` block for the comb
 
 ### Verification Using a Traditional SystemVerilog (SV) Testbench Approach
 
-The input patterns in `cnt_tb.sv` are driven on the rising of a virtual clock `tb_clk` running at period `T`.<br>
+The input patterns in `cnt_tb.sv` are driven on the rising edge of a virtual clock `tb_clk` running at period `T`.<br>
 The physical `clk` is phase‑shifted by `TB_SKEW` w.r.t. the virtual clock.<br>
-The testbench is self-checking. Outputs are sampled `TSKEW` ns before the end of the clock cycle.
+The testbench is self-checking. Outputs are sampled `TSKEW` before the end of the clock cycle.
 
 - [`cnt_tb.sv`](./01_counter/TB/cnt_tb.sv)
 - [`config.txt`](./01_counter/config.txt)
@@ -99,7 +99,36 @@ The [`signals.do`](./01_counter/signals.do) file is a macro script used to autom
 </p>
 
 ### Verification Using cocotb and Icarus Verilog (makefile-based workflow)
-The input patterns (in `test_cnt.py`) are driven on the rising of a virtual clock `v_clk` running at `period_ns`. <br>
+
+> [!Note]
+> Before you start working with `cocotb`, navigate to the project directory:
+>```
+>cd /fpga-designs/01_counter/
+>```
+>And set up the Python environment:
+>1. **Create a virtual environment** 
+>    ```
+>    # Create a virtual environment named '.venv' in your home directory
+>    python3 -m venv ~/.venv
+>    ```
+>2. **Activate the virtual environment**  
+>    ```
+>    # Activate the virtual environment
+>    source ~/.venv/bin/activate
+>    ```
+>3. **Installs the required testing and simulation infrastructure**   
+>    ```
+>    # Safely install the packages inside the active environment
+>    pip3 install cocotb cocotb-tools pyyaml
+>    ```
+>4. **Deactivate the virtual environment**<br>
+>    When you are done working and want to return to your normal shell environment, simply run:
+>    ```
+>    deactivate
+>    ```
+
+
+The input patterns (in `test_cnt.py`) are driven on the rising edge of a virtual clock `v_clk` running at `period_ns`. <br>
 The virtual clock starts in the low state.<br>
 The physical `clk` is phase‑shifted by `phase_ns` w.r.t. the virtual clock.<br>
 To create a visible virtual clock we need to add a SV Testbench wrapper (`tb_top.sv`)
@@ -113,7 +142,6 @@ The cocoTB required files are:
 - [`config.yaml`](./01_counter/config.yaml)
 - [`Makefile`](./01_counter/Makefile)
 - [`dump.gtkw`](./01_counter/dump.gtkw)
-
 
 To execute the test run:
 
@@ -214,7 +242,8 @@ make signals
        <img src="./01_counter/IMG/dump-vcd.png" width="1200" />
 </p>
 
-
+> [!Tip]
+> If needed, **zoom fit** the waveforms."
 
 ### Verification Using cocotb and Questa (makefile-based workflow)
 
