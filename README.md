@@ -399,19 +399,20 @@ To diplay the simulation waveforms using Questa (`.wlf`) run:
 make waves SIM=questa
 ```
 
-Launching Questa this way leaves the waveform viewer blank. You will need to manually add the desird signals.
-
-To do this, run the following command in the VSIM console:
-
-```
-add wave /tb_top/*; wave zoomfull;
-```
-
 or
 
 ```
 make signals SIM=questa
 ```
+
+Launching Questa using `make waves SIM=questa` leaves the waveform viewer blank. You need add the desired signals manually.
+
+To do this, you can run the following command in the VSIM console:
+
+```
+add wave /tb_top/*; wave zoomfull;
+```
+
 
 To open the waveforms with GTKWave (`.vcd`) instead of Questa, use:
 
