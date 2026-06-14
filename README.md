@@ -195,4 +195,10 @@ or
 make signals
 ```
 
+<p align="center">
+       <img src="./01_counter/IMG/dump-vcd.png" width="1000" />
+</p>
+
+
+
 ### Verification Using cocotb and Questa 
