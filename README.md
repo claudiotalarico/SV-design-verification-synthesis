@@ -202,3 +202,10 @@ make signals
 
 
 ### Verification Using cocotb and Questa (Python runner workflow)
+
+<!--
+The cocoTB required files are:
+- [`tb_top.sv`](./01_counter/RTL/tb_top.sv)
+- [`test_counter.py`](./01_counter/test_cnt.py)
+- [`config.yaml`](./01_counter/config.yaml)
+-->
