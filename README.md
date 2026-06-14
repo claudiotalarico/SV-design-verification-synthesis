@@ -243,7 +243,7 @@ make signals
 </p>
 
 > [!Tip]
-> If needed, **zoom fit** the waveforms."
+> If needed, **zoom fit** the waveforms.
 
 ### Verification Using cocotb and Questa (makefile-based workflow)
 
