@@ -195,4 +195,4 @@ or
 make signals
 ```
 
-### Verification using cocotb and Questa 
+### Verification Using cocotb and Questa 
