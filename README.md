@@ -112,6 +112,8 @@ The cocoTB required files are:
 - [`test_cnt.py`](./01_counter/test_cnt.py)
 - [`config.yaml`](./01_counter/config.yaml)
 - [`Makefile`](./01_counter/Makefile)
+- [`signals.do`](./01_counter/signals.do)
+
 
 To generate the test run:
 ```
@@ -123,19 +125,19 @@ make
 rm -f results.xml
 "make" -f Makefile results.xml
 make[1]: Entering directory '/home/talarico/google-drive/fpga-designs/01_counter'
-/usr/bin/iverilog -o /home/talarico/google-drive/fpga-designs/01_counter/WAVES/sim.vvp -s tb_top -g2012 -f /home/talarico/google-drive/fpga-designs/01_counter/WAVES/cmds.f -s cocotb_iverilog_dump  /home/talarico/google-drive/fpga-designs/01_counter/RTL/cnt.sv /home/talarico/google-drive/fpga-designs/01_counter/RTL/tb_top.sv /home/talarico/google-drive/fpga-designs/01_counter/WAVES/cocotb_iverilog_dump.v
 rm -f results.xml
 COCOTB_TEST_MODULES=test_cnt COCOTB_TESTCASE= COCOTB_TEST_FILTER= COCOTB_TOPLEVEL=tb_top TOPLEVEL_LANG=verilog \
          /usr/bin/vvp -M /home/talarico/.venv/lib/python3.12/site-packages/cocotb/libs -m libcocotbvpi_icarus   /home/talarico/google-drive/fpga-designs/01_counter/WAVES/sim.vvp -fst  
      -.--ns INFO     gpi                                ..mbed/gpi_embed.cpp:93   in _embed_init_python              Using Python 3.12.4 interpreter at /home/talarico/.venv/bin/python3
      -.--ns INFO     gpi                                ../gpi/GpiCommon.cpp:79   in gpi_print_registered_impl       VPI registered
      0.00ns INFO     cocotb                             Running on Icarus Verilog version 12.0 (stable)
-     0.00ns INFO     cocotb                             Seeding Python random module with 1781408505
+     0.00ns INFO     cocotb                             Seeding Python random module with 1781423376
      0.00ns INFO     cocotb                             Initialized cocotb v2.0.1 from /home/talarico/.venv/lib/python3.12/site-packages/cocotb
      0.00ns INFO     cocotb                             Running tests
-FST info: dumpfile WAVES/dump.fst opened for output.
+     0.00ns INFO     cocotb.regression                  running test_cnt.test_cnt (1/1)
+FST info: dumpfile WAVES/dump.vcd opened for output.
 FST warning: /home/talarico/google-drive/fpga-designs/01_counte $dumpfile called after $dumpvars started,
-                                                                using existing file (WAVES/dump.fst).
+                                                                using existing file (WAVES/dump.vcd).
 FST warning: ignoring signals in previously scanned scope tb_top.
 FST warning: ignoring signals in previously scanned scope tb_top.dut.
 
@@ -179,8 +181,18 @@ FST warning: ignoring signals in previously scanned scope tb_top.dut.
 
    525.00ns INFO     cocotb.tb_top                      Ending Test:: Time 525.0 ns
 
+
+   665.00ns INFO     cocotb.regression                  test_cnt.test_cnt passed
+   665.00ns INFO     cocotb.regression                  **************************************************************************************
+                                                        ** TEST                          STATUS  SIM TIME (ns)  REAL TIME (s)  RATIO (ns/s) **
+                                                        **************************************************************************************
+                                                        ** test_cnt.test_cnt              PASS         665.00           1.23        539.30  **
+                                                        **************************************************************************************
+                                                        ** TESTS=1 PASS=1 FAIL=0 SKIP=0                665.00           1.59        417.86  **
+                                                        **************************************************************************************
+                                                        
 make[1]: Leaving directory '/home/talarico/google-drive/fpga-designs/01_counter'
-  
+
 </pre>
 
 To diplay the simulation waveforms run:
@@ -201,11 +213,18 @@ make signals
 
 
 
-### Verification Using cocotb and Questa (Python runner workflow)
+### Verification Using cocotb and Questa (makefile-based workflow)
 
-<!--
 The cocoTB required files are:
 - [`tb_top.sv`](./01_counter/RTL/tb_top.sv)
-- [`test_counter.py`](./01_counter/test_cnt.py)
+- [`test_cnt.py`](./01_counter/test_cnt.py)
 - [`config.yaml`](./01_counter/config.yaml)
--->
+- [`Makefile`](./01_counter/Makefile)
+- [`cocotb_signals.do`](./01_counter/cocotb_signals.do)
+
+To generate the test run:
+```
+cd /fpga-designs/01_counter	
+make SIM=questa
+```
+
