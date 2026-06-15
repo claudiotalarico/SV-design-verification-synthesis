@@ -127,11 +127,14 @@ The [`signals.do`](./01_counter/signals.do) file is a macro script used to autom
 >    ```
 >    deactivate
 >    ```
-> Alternatively create a script called [`env_setup_cocotb.sh`](./01_counter/env_setup_cocotb.sh) that defines a function to configure the virtual environment, and invoke it as follows:  
+> Alternatively create a script called [`env_setup_cocotb.sh`](./01_counter/env_setup_cocotb.sh) that defines a function for configuring the virtual environment, and invoke it as follows:  
 > ```
 > source env_setup_cocotb.sh
 > ```
-
+> After sourcing, you can call the function directly:
+> ```
+> env_setup_cocotb
+> ```
 
 The input patterns (in `test_cnt.py`) are driven on the rising edge of a virtual clock `v_clk` running at `period_ns`. <br>
 The virtual clock starts in the low state.<br>
