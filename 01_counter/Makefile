@@ -94,7 +94,7 @@ endif
 #  Clean
 # ============================================================
 clean::
-	@echo "Cleaning up build artifacts..."
+	@echo "Cleaning up artifacts..."
 	@rm -rf $(PWD)/WAVES /tmp/WAVES
 	@rm -f *.vcd *.fst *.xml *.wlf transcript
 	@rm -rf __pycache__ 
