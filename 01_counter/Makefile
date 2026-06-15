@@ -7,6 +7,9 @@
 # ============================================================
 SIM ?= icarus
 
+# Make "make" run the copy target by default
+.DEFAULT_GOAL := copy_wlf
+
 # Remap 'questa' to the traditional vlog/vsim flow
 ifeq ($(SIM),questa)
     override SIM := questa-compat
@@ -31,11 +34,12 @@ COCOTB_TEST_MODULES := test_cnt
 # Enable waveform generation
 WAVES ?= 1
 
+
 # ============================================================
 #  Simulator-specific settings
 # ============================================================
 ifeq ($(SIM),questa-compat)
-    SIM_BUILD  ?= $(PWD)/WAVES
+    SIM_BUILD  := /tmp/WAVES
     # vlog compile flags
     COMPILE_ARGS += -sv -O5
     # vsim simulation flags
@@ -46,21 +50,30 @@ else ifeq ($(SIM),icarus)
     COMPILE_ARGS += -g2012
 endif
 
-# Custom directory for simulation build files and waveforms
-SIM_BUILD ?= $(PWD)/WAVES
-
-# Create the custom directory if it doesn't exist
+# Create directories if needed
 $(shell mkdir -p $(SIM_BUILD))
+$(shell mkdir -p $(PWD)/WAVES)
 
 # Include cocotb's makefile rules
 include $(shell cocotb-config --makefiles)/Makefile.sim
 
-.PHONY: clean waves signals
+.PHONY: clean waves signals copy_wlf
+
+# Automatic post-run copy for Questa
+copy_wlf: sim
+ifeq ($(SIM),questa-compat)
+	@mkdir -p $(PWD)/WAVES
+	@if [ -f /tmp/WAVES/vsim.wlf ]; then \
+		cp -f /tmp/WAVES/vsim.wlf $(PWD)/WAVES/vsim.wlf \
+		&& echo "Copied vsim.wlf to WAVES/"; \
+	fi
+endif
+
 waves:
 ifeq ($(SIM),questa-compat)
 	@echo "Opening Questa waveform..."
-	vsim -view $(SIM_BUILD)/vsim.wlf 
-	# vsim -view $(SIM_BUILD)/vsim.wlf -do "add wave /tb_top/*; wave zoomfull;"
+	# vsim -view $(SIM_BUILD)/vsim.wlf 
+	vsim -view $(SIM_BUILD)/vsim.wlf -do "add wave /tb_top/*; wave zoomfull;"
 	# vsim -view $(SIM_BUILD)/vsim.wlf -do "add wave -r /*; wave zoomfull;"
 else
 	@echo "Opening GTKWave..."
@@ -81,5 +94,8 @@ endif
 #  Clean
 # ============================================================
 clean::
-	@echo "Cleaning up..."
-	rm -rf WAVES *.vcd *.fst *.xml __pycache__ transcript *.wlf
+	@echo "Cleaning up build artifacts..."
+	@rm -rf $(PWD)/WAVES /tmp/WAVES
+	@rm -f *.vcd *.fst *.xml *.wlf transcript
+	@rm -rf __pycache__ 
+	@echo "Cleaning Done."
