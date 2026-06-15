@@ -65,7 +65,7 @@ ifeq ($(SIM),questa-compat)
 	@mkdir -p $(PWD)/WAVES
 	@if [ -f /tmp/WAVES/vsim.wlf ]; then \
 		cp -f /tmp/WAVES/vsim.wlf $(PWD)/WAVES/vsim.wlf \
-		&& echo "Copied vsim.wlf to WAVES/"; \
+		&& echo "Copied vsim.wlf to $(PWD)/WAVES/"; \
 	fi
 endif
 
