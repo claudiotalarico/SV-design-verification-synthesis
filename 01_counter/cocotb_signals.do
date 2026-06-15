@@ -7,4 +7,7 @@ add wave vsim:/tb_top/load
 add wave vsim:/tb_top/data_in
 add wave vsim:/tb_top/count
 add wave vsim:/tb_top/dut/next_count
+# show leaf name only (set to 0 for Full or 2 for Local)
+configure wave -signalnamewidth 1
+# full zoom
 wave zoom full
